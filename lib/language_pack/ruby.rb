@@ -91,7 +91,7 @@ class LanguagePack::Ruby < LanguagePack::Base
         install_bundler_in_app
         build_bundler
         post_bundler
-        create_database_yml
+        create_database_yml if ENV['OVERWRITE_DATABASE_YML'] == 'true'
         install_binaries
         run_assets_precompile_rake_task
       end
